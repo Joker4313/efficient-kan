@@ -24,7 +24,7 @@ class KANLinear(torch.nn.Module):
         self.grid_size = grid_size
         self.spline_order = spline_order
 
-        h = (grid_range[1] - grid_range[0]) / grid_size
+        h = (grid_range[1] - grid_range[0]) / grid_size # grid step size
         grid = (
             (
                 torch.arange(-spline_order, grid_size + spline_order + 1) * h
@@ -32,7 +32,7 @@ class KANLinear(torch.nn.Module):
             )
             .expand(in_features, -1)
             .contiguous()
-        )
+        ) 
         self.register_buffer("grid", grid)
 
         self.base_weight = torch.nn.Parameter(torch.Tensor(out_features, in_features))
