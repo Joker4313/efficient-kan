@@ -1,1 +1,1 @@
-from .load_data import HARDataSet
+from .load_data import HARDataSet, IrisDataSet
